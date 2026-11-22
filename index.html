@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Prompt Coach</title>
+  <meta name="description" content="Paste a prompt, get a score, honest feedback and a stronger rewrite.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="top">
+    <div class="wrap top-inner">
+      <div class="brand">
+        <span class="brand-mark" aria-hidden="true">PC</span>
+        <div>
+          <h1>Prompt Coach</h1>
+          <p>Paste a prompt. Get a score, honest feedback and a stronger rewrite.</p>
+        </div>
+      </div>
+      <span class="pill">Prompt Engineering Capstone</span>
+    </div>
+  </header>
+
+  <main class="wrap grid">
+    <section class="card input-card" aria-labelledby="input-title">
+      <h2 id="input-title">Your prompt</h2>
+      <label for="prompt" class="sr-only">Prompt to review</label>
+      <textarea id="prompt" rows="9" maxlength="2000"
+        placeholder="Example: Write a blog post about healthy food"></textarea>
+      <div class="row">
+        <span id="count" class="muted">0 / 2000</span>
+        <button id="clear" class="link" type="button">Clear</button>
+      </div>
+
+      <p class="muted small">Try an example:</p>
+      <div class="chips" id="examples">
+        <button type="button" class="chip" data-text="Write a blog post about healthy food">Vague prompt</button>
+        <button type="button" class="chip" data-text="Act as a career coach for final-year engineering students in India. Write a 300-word LinkedIn post that explains three ways to stand out in campus placements. Use a friendly tone, short paragraphs and end with one question for readers. Avoid buzzwords and do not use emojis.">Strong prompt</button>
+        <button type="button" class="chip" data-text="Explain machine learning">Too short</button>
+      </div>
+
+      <button id="go" class="primary" type="button">Review my prompt</button>
+      <p id="status" class="status" role="status" aria-live="polite"></p>
+    </section>
+
+    <section class="card result-card" aria-labelledby="result-title">
+      <h2 id="result-title">Dashboard</h2>
+
+      <div id="empty" class="empty">
+        <p>Your score and feedback will appear here.</p>
+        <p class="muted small">Tip: prompts that state the audience, format and limits score highest.</p>
+      </div>
+
+      <div id="result" hidden>
+        <div class="score-row">
+          <div class="ring" id="ring" role="img" aria-label="Overall score">
+            <span id="overall">0</span><small>/ 100</small>
+          </div>
+          <div class="bars" id="bars"></div>
+        </div>
+
+        <div class="two">
+          <div>
+            <h3>What works</h3>
+            <ul id="strengths"></ul>
+          </div>
+          <div>
+            <h3>What to fix</h3>
+            <ul id="issues"></ul>
+          </div>
+        </div>
+
+        <h3>Improved prompt</h3>
+        <pre id="improved" class="improved"></pre>
+        <div class="row">
+          <button id="copy" class="secondary" type="button">Copy improved prompt</button>
+          <button id="use" class="link" type="button">Use it as my prompt</button>
+        </div>
+
+        <p class="tip"><strong>Tip:</strong> <span id="tip"></span></p>
+      </div>
+    </section>
+
+    <section class="card history-card" aria-labelledby="history-title">
+      <div class="row">
+        <h2 id="history-title">Recent reviews</h2>
+        <button id="clear-history" class="link" type="button">Clear history</button>
+      </div>
+      <ul id="history" class="history"></ul>
+      <p id="history-empty" class="muted small">No reviews yet. They are saved only in this browser.</p>
+    </section>
+  </main>
+
+  <footer class="wrap foot">
+    <p>Built with HTML, CSS and JavaScript, a Vercel serverless function and the Anthropic API. The API key stays on the server.</p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

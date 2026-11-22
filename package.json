@@ -1,0 +1,13 @@
+{
+  "name": "prompt-coach",
+  "version": "1.0.0",
+  "description": "Prompt Coach: scores a prompt, explains what to fix and rewrites it. Prompt Engineering capstone project.",
+  "private": true,
+  "scripts": {
+    "start": "node server.js",
+    "test": "node test/run-tests.js"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
